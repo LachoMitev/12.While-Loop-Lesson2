@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int main()
+{
+
+	std::string bookName;
+
+	int bookQty;
+
+	std::getline(std::cin, bookName);
+
+	std::cin >> bookQty;
+
+	std::string bookSearch;
+	std::getline(std::cin, bookSearch);
+
+	int count = 0;
+
+	while (bookSearch != bookName)
+	{
+		std::getline(std::cin, bookSearch);
+		count++;
+
+		if (count == bookQty)
+		{
+			break;
+		}
+	}
+
+	if (bookSearch == bookName)
+	{
+		std::cout << "You checked " << count << " books and found it." << std::endl;
+	}
+
+	else 
+	{
+		std:cout << "The book you search is not here!" << std::endl;
+		std::cout << "You checked " << count << " books." << std::endl;
+	}
+
+	return 0;
+}
