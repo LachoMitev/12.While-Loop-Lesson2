@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	double needMoney, money;
+	std::cin >> needMoney >> money;
+
+	int countAllDays = 0; 
+	int countSpendDays = 0;
+
+	while (money < needMoney)
+	{ 
+		std::string action; 
+		std::cin >> action;
+
+		double moneyAction;
+		std::cin >> moneyAction;
+		countAllDays++;
+
+	if (action == "save")
+	{
+		money += moneyAction;
+		countSpendDays = 0;
+	}
+	else if (action == "spend")
+		{
+		countSpendDays++;
+		money -= moneyAction;
+		if (money < 0)
+			{
+				money = 0;
+			}
+		}
+
+		if (countSpendDays == 5)
+		{
+		std::cout << "You can't save the money." << std::endl;
+		std::cout << countAllDays << std::endl;
+		break;
+		}
+	}
+
+	if (money >= needMoney)
+	{
+		std::cout << "You saved the money for " << countAllDays << " days." << std::endl;
+	}
+
+	return 0;
+}
