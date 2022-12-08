@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	int targetSteps = 10000;
+	std::string command;
+	std::getline(std::cin, command);
+
+	int walkedSteps = 0;
+
+	while (command != "Going home")
+	{
+		walkedSteps += std::stoi(command);
+
+		if (walkedSteps >= targetSteps)
+		{
+			std::cout << "Goal reached! Good job!" << std:: endl;
+			break;
+		}
+    
+		std::getline(std::cin, command);
+	}
+
+	if (command == "Going home")
+	{
+		int stepsToHome;
+		std::cin >> stepsToHome;
+		walkedSteps += stepsToHome;
+
+		if (walkedSteps >= targetSteps) 
+		{
+			std::cout << "Goal reached! Good job!" << std::endl;
+		}
+		else
+		{
+			std::cout << targetSteps - walkedSteps << " more steps to reach goal." << std::endl;
+		}
+	}
+
+	return 0;
+}
